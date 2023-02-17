@@ -1,6 +1,8 @@
 import flatpickr from 'flatpickr';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 import '../../node_modules/flatpickr/dist/flatpickr.min.css';
+import '../../node_modules/notiflix/dist/notiflix-3.2.6.min.css';
 
 const el = {
   input: document.querySelector('#datetime-picker'),
@@ -31,7 +33,10 @@ const options = {
     }
 
     el.startBtn.setAttribute('disabled', true);
-    alert("Ти погано людина, 'РЕДИСКА'. Please choose a date in the future");
+    Report.failure(
+      'Не делай мине беременную голову!',
+      'Please choose a date in the future'
+    );
   },
 };
 
@@ -54,6 +59,11 @@ function Timer() {
   if (timeLeft < 0) {
     isTimerOn = false;
     clearInterval(timerID);
+    Report.warning(
+      'GAME OVER',
+      'Воз отдыхает зимой, сани — летом, а конь — никогда.',
+      'Try again'
+    );
     return;
   }
 
