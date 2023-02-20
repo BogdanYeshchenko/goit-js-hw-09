@@ -49,6 +49,8 @@ function handleStartTimer() {
     return;
   }
 
+  el.startBtn.setAttribute('disabled', true);
+
   timerID = setInterval(Timer, 1000);
 }
 
