@@ -21,7 +21,7 @@ function handlesabmitForm(event) {
         Notify.success(x);
       })
       .catch(y => {
-        console.log(y);
+        console.error(y);
         Notify.failure(y);
       });
   }
