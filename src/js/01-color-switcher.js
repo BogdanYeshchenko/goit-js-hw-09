@@ -9,6 +9,8 @@ let isChangeColorWork = false;
 el.startBtn.addEventListener('click', handleStartChangeColor);
 el.stopBtn.addEventListener('click', handleStopChangeColor);
 
+el.stopBtn.setAttribute('disabled', true);
+
 function handleStartChangeColor() {
   if (isChangeColorWork) {
     return;
@@ -16,11 +18,16 @@ function handleStartChangeColor() {
 
   isChangeColorWork = true;
 
+  el.startBtn.setAttribute('disabled', true);
+  el.stopBtn.removeAttribute('disabled');
+
   intervalChangeColor = setInterval(changeColorBody, 1000);
 }
 
 function handleStopChangeColor() {
   isChangeColorWork = false;
+  el.stopBtn.setAttribute('disabled', true);
+  el.startBtn.removeAttribute('disabled');
   clearInterval(intervalChangeColor);
 }
 
